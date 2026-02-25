@@ -1,44 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alice in Wonderland Birthday Invitation</title>
-    <style>
-        body {
-            font-family: "Arial", sans-serif;
-            background-color: #f0e68c;
-            color: #5d5c61;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            color: #7c4dff;
-        }
-        .invitation {
-            border: 2px dashed #ff4081;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fff;
-        }
-        .date {
-            font-size: 1.2em;
-            margin: 15px 0;
-        }
-        .rsvp {
-            font-size: 1em;
-            margin: 20px 0;
-        }
-    </style>
+    <title>Invito - Compleanno di Matteo 18 anni</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>You are Invited!</h1>
-    <div class="invitation">
-        <h2>Join us for an Alice in Wonderland themed birthday party!</h2>
-        <p class="date">Date: March 15, 2026</p>
-        <p class="time">Time: 2:00 PM - 5:00 PM</p>
-        <p>Location: 123 Wonderland Lane</p>
-        <p class="rsvp">Please RSVP by March 1 to the Queen of Hearts!</p>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">✨ Sei invitato! ✨</h1>
+            <p class="subtitle">al compleanno di</p>
+            <h2 class="birthday-name">Matteo</h2>
+            <p class="age">18 anni</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="nav-btn active" onclick="switchTab('tema')">🎴 Il Tema</button>
+            <button class="nav-btn" onclick="switchTab('location')">📍 Location</button>
+            <button class="nav-btn" onclick="switchTab('conferma')">✓ Conferma</button>
+        </nav>
+
+        <!-- Tema Section -->
+        <section id="tema" class="tab-content active">
+            <div class="section-header">
+                <h2>Alice nel Paese delle Meraviglie</h2>
+                <div class="decorative-cards">🂡 🂮 🃏</div>
+            </div>
+            
+            <div class="tema-content">
+                <p class="description">Un viaggio straordinario nel Paese delle Meraviglie!</p>
+                
+                <div class="theme-details">
+                    <div class="detail-card">
+                        <h3>🃏 Dress Code</h3>
+                        <p>Vieni vestito come un personaggio di Alice nel Paese delle Meraviglie!</p>
+                        <p class="hint">Suggerimenti: Regina di Cuori, Cappellaio Matto, Bianconiglio, Gatto Stregatto...</p>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3>🫖 Tè del Cappellaio Matto</h3>
+                        <p>Un'atmosfera magica con tè, dolcetti e sorprese a tema!</p>
+                        <p class="hint">Preparati per un tè indimenticabile tra le carte e i colori del Paese delle Meraviglie</p>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3>🎴 Giochi e Sorprese</h3>
+                        <p>Attività interattive e sorprese a tema Alice vi aspettano!</p>
+                        <p class="hint">Un'esperienza magica e divertente per tutti</p>
+                    </div>
+                </div>
+
+                <div class="teapot-decoration">🫖</div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section id="location" class="tab-content">
+            <div class="section-header">
+                <h2>📍 Dove e Quando</h2>
+                <div class="decorative-cards">🂡 🂮 🃏</div>
+            </div>
+
+            <div class="location-content">
+                <div class="location-card">
+                    <h3>Luogo</h3>
+                    <p class="location-name">Il Casolare del Sole</p>
+                    <p class="location-address">Un'oasi incantata per la festa</p>
+                </div>
+
+                <div class="location-card">
+                    <h3>Data</h3>
+                    <p class="location-detail">5 Giugno 2026</p>
+                </div>
+
+                <div class="location-card">
+                    <h3>Ora</h3>
+                    <p class="location-detail">20:00</p>
+                </div>
+
+                <div class="map-placeholder">
+                    <p>🗺️ Il Casolare del Sole</p>
+                    <p class="hint">Preparati a entrare nel Paese delle Meraviglie!</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>📝 Importante</h4>
+                    <p>Posti limitati per mantenere l'atmosfera magica e intima</p>
+                    <p>Conferma la tua presenza nella sezione dedicata!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conferma Section (Protected) -->
+        <section id="conferma" class="tab-content">
+            <div class="section-header">
+                <h2>✓ Conferma la tua Presenza</h2>
+                <div class="decorative-cards">🂡 🂮 🃏</div>
+            </div>
+
+            <div id="codeInput" class="code-section">
+                <p class="access-text">Inserisci il codice di accesso per confermare la tua presenza</p>
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="accessCode" 
+                        class="code-input" 
+                        placeholder="Inserisci il codice..."
+                        maxlength="20"
+                    >
+                    <button class="btn-unlock" onclick="unlockConferma()">Accedi</button>
+                </div>
+                <p class="error-message" id="errorMsg"></p>
+            </div>
+
+            <div id="confermContent" class="conferma-content hidden">
+                <div class="success-message">
+                    <p class="success-emoji">✨✓✨</p>
+                    <h3>Accesso Concesso!</h3>
+                    <p>Benvenuto nel Paese delle Meraviglie!</p>
+                </div>
+
+                <form class="conferma-form">
+                    <div class="form-group">
+                        <label for="name">Nome e Cognome *</label>
+                        <input type="text" id="name" required placeholder="Es: Mario Rossi">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" required placeholder="Es: mario@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefono</label>
+                        <input type="tel" id="phone" placeholder="Es: 3331234567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guests">Numero di persone *</label>
+                        <select id="guests" required>
+                            <option value="">Seleziona...</option>
+                            <option value="1">1 persona</option>
+                            <option value="2">2 persone</option>
+                            <option value="3">3 persone</option>
+                            <option value="4">4 persone</option>
+                            <option value="5">5+ persone</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dietary">Esigenze dietetiche</label>
+                        <textarea id="dietary" placeholder="Es: Vegetariano, Senza glutine, Altro..."></textarea>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="confirm" required>
+                        <label for="confirm">Confermo la mia presenza all'evento</label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Conferma Presenza</button>
+                </form>
+
+                <div class="confirmation-message hidden" id="confirmationMsg">
+                    <p class="success-emoji">🎉</p>
+                    <h4>Grazie per la conferma!</h4>
+                    <p>Ti aspettiamo il 5 giugno al Casolare del Sole!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🂡 Una festa incantata nel Paese delle Meraviglie 🂡</p>
+            <p class="footer-date">5 Giugno 2026 | Il Casolare del Sole</p>
+        </footer>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
