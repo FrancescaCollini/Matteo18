@@ -51,6 +51,25 @@ function unlockConferma() {
     }
 }
 
+<<<<<<< HEAD
+=======
+document.querySelectorAll('input[name="attendance"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+
+        if (this.value === "si") {
+            document.getElementById("rsvp-form").style.display = "block";
+            document.getElementById("no-message").style.display = "none";
+        }
+
+        if (this.value === "no") {
+            document.getElementById("rsvp-form").style.display = "none";
+            document.getElementById("no-message").style.display = "block";
+        }
+
+    });
+});
+
+>>>>>>> 23 aprile
 // Gestione invio form
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.conferma-form');
