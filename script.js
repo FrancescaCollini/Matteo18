@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Raccogli dati del form
             const nome = document.getElementById('name').value;
             const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
+            //const phone = document.getElementById('phone').value;
             const guests = document.getElementById('guests').value;
             const dietary = document.getElementById('dietary').value;
             const comments = document.getElementById('comments').value;
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = {
                 nome: nome,
                 email: email,
-                phone: phone,
+                //phone: phone,
                 numeroPersone: guests,
                 esigenzeDietetiche: dietary,
                 dataConferma: new Date().toLocaleString('it-IT')
@@ -177,12 +177,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let data = {
             name: document.getElementById("name").value,
-            attendance: attendance,
-            phone: document.getElementById("phone").value,
-            guests: document.getElementById("guests").value,
-            dietary: document.getElementById("dietary").value,
-            comments: document.getElementById("comments").value
-        };
+            attendance: attendance
+            };
+            if (attendance === "si") {
+            data.guests = document.getElementById("guests").value;
+            data.dietary = document.getElementById("dietary").value;
+            data.comments = document.getElementById("comments").value;
+        }
+        
 
         fetch(scriptURL, {
             method: "POST",
