@@ -165,7 +165,9 @@
                             <h3>Data e Ora<br> <br></h3>
                             <p class="location-detail">5 Giugno 2026</p>
                             <p class="location-detail">h 20:00</p>
-                                                <p style="color: #f5f5dc;">Conferma la tua presenza nella sezione dedicata!</p>
+                                                
+                                                <p style="color: #f5f5dc;">La magia si prepara… e ha bisogno di te 🐇✨
+<br>Ti chiediamo gentilmente di confermare la tua presenza entro il 25 MAGGIO. </p>
 
                         </div>
                 <img src="mano.gif" style="width:40%; height:auto; margin-bottom:50px;">  
@@ -199,7 +201,7 @@
 
             <div id="confermaContent" class="conferma-content hidden">
                 <div class="success-message">
-                    <h3>Accesso Concesso!</h3>
+                    <h3>Accesso Concesso</h3>
                     <p>Benvenuto nel Paese delle Meraviglie!</p>
                 </div>
 
@@ -328,7 +330,7 @@ document.querySelector(".conferma-form").addEventListener("submit", function(e) 
 
     emailjs.send("service_uja2oag", "template_z7belnr",templateParams)
     .then(() => {
-        alert("✨ RSVP inviato con successo!");
+        alert("✨ Conferma inviata con successo!");
     })
     .catch((error) => {
         console.log(error);

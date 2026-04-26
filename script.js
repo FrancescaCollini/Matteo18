@@ -29,7 +29,7 @@ function unlockConferma() {
     const code = document.getElementById('accessCode').value.trim();
     const errorMsg = document.getElementById('errorMsg');
     const codeSection = document.getElementById('codeInput');
-    const confermContent = document.getElementById('confermContent');
+    const confermContent = document.getElementById('confermaContent');
 
     // Pulizia messaggio errore precedente
     errorMsg.textContent = '';
@@ -164,3 +164,38 @@ function exportConfermeDati() {
     window.URL.revokeObjectURL(url);
     document.body.removeChild(a);
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycby2bbogGD076mWgyA1XdFKPkTgqEvKGqpyFQ9pVu4BY_q8ngKjJGwGbnhHo9wctojC3/exec";
+
+    document.querySelector(".conferma-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const attendance = document.querySelector('input[name="attendance"]:checked')?.value;
+
+        let data = {
+            name: document.getElementById("name").value,
+            attendance: attendance,
+            phone: document.getElementById("phone").value,
+            guests: document.getElementById("guests").value,
+            dietary: document.getElementById("dietary").value,
+            comments: document.getElementById("comments").value
+        };
+
+        fetch(scriptURL, {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+        .then(() => {
+            alert("✨ Conferma salvata!");
+        })
+        .catch(() => {
+            alert("Errore, riprova per favore! 😢");
+        });
+    });
+
+});
+
+    
