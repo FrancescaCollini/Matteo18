@@ -19,6 +19,8 @@ html {
 }
 
 body {
+
+
     font-family: 'Poppins', cursive;
     color: var(--white);
     min-height: 280vh;
@@ -48,6 +50,25 @@ a {
     color: inherit; /* mantiene il colore del testo */
     text-decoration: none;
     border-bottom: 2px solid #f5f5dc;
+}
+
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #5A0F1A;
+    color: #f5f5dc;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 999;
+}
+
+.music-btn:hover {
+    transform: scale(1.05);
 }
 
 .highlight-link {

@@ -56,6 +56,21 @@ function unlockConferma() {
         }, 10);
     }
 }
+const musicBtn = document.getElementById("musicBtn");
+const bgMusic = document.getElementById("bgMusic");
+
+let isPlaying = false;
+
+musicBtn.addEventListener("click", () => {
+    if (isPlaying) {
+        bgMusic.pause();
+        musicBtn.textContent = "🎵 Play Music";
+    } else {
+        bgMusic.play();
+        musicBtn.textContent = "⏸ Pause Music";
+    }
+    isPlaying = !isPlaying;
+});
 
 // Gestione invio form
 document.addEventListener('DOMContentLoaded', function() {
