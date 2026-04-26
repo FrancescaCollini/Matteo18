@@ -2,20 +2,26 @@
 const ACCESS_CODE = 'wonderland18';
 
 // Gestione dei tab
-function switchTab(tabName) {
-    // Nascondi tutti i tab
-    const tabs = document.querySelectorAll('.tab-content');
-    tabs.forEach(tab => tab.classList.remove('active'));
+function switchTab(event, tabName) {
 
-    // Rimuovi la classe active da tutti i pulsanti
-    const buttons = document.querySelectorAll('.nav-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
+    // nasconde tutti i tab
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+    });
 
-    // Mostra il tab selezionato
-    document.getElementById(tabName).classList.add('active');
+    // rimuove active dai bottoni
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
 
-    // Aggiungi la classe active al pulsante cliccato
-    event.target.classList.add('active');
+    // mostra il tab corretto
+    const selectedTab = document.getElementById(tabName);
+    if (selectedTab) {
+        selectedTab.classList.add('active');
+    }
+
+    // attiva bottone cliccato
+    event.currentTarget.classList.add('active');
 }
 
 // Gestione sblocco sezione conferma
@@ -51,25 +57,6 @@ function unlockConferma() {
     }
 }
 
-<<<<<<< HEAD
-=======
-document.querySelectorAll('input[name="attendance"]').forEach(radio => {
-    radio.addEventListener('change', function() {
-
-        if (this.value === "si") {
-            document.getElementById("rsvp-form").style.display = "block";
-            document.getElementById("no-message").style.display = "none";
-        }
-
-        if (this.value === "no") {
-            document.getElementById("rsvp-form").style.display = "none";
-            document.getElementById("no-message").style.display = "block";
-        }
-
-    });
-});
-
->>>>>>> 23 aprile
 // Gestione invio form
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.conferma-form');
@@ -84,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const phone = document.getElementById('phone').value;
             const guests = document.getElementById('guests').value;
             const dietary = document.getElementById('dietary').value;
+            const comments = document.getElementById('comments').value;
 
             // Validazione base
             if (!nome || !email || !guests) {
