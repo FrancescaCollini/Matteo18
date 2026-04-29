@@ -918,7 +918,7 @@ a {
     }
 
     .header .title {
-        font-size: 1.6em;
+        font-size: clamp(3.5em, 10vw, 6em);
     }
 
     .header .birthday-name {
