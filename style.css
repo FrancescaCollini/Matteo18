@@ -852,9 +852,9 @@ a {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    /*.header .title {
-        font-size: clamp(3.5em, 10vw, 6em);
-    } */
+    .header .title {
+        font-size: 3px;
+    } 
 
     .header .birthday-name {
         font-size: 3.5em;
