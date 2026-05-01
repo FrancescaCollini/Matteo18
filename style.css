@@ -45,7 +45,7 @@ h1 {
     padding: 40px 30px;
     text-align: center;
     overflow: hidden;
-    
+    max-width: 100%;
     border-bottom: 4px solid var(--gold);
 }
 a {
@@ -90,7 +90,7 @@ a {
     transition: all 0.3s ease;
 }
 .header .title {
-    font-size: clamp(2em, 5vw, 3.5em);
+    font-size: clamp(2em, 3vw, 3.5em);
     text-shadow: 1px 1px 2px rgba(0,0,0,0.8),
         2px 2px 4px rgba(0,0,0,0.6);
     color: var(--dark-red);
@@ -99,6 +99,7 @@ a {
     margin: 0 auto;
     text-align: center;
     white-space: normal;
+    min-width: 0;
 }
 
 @keyframes pulse {
@@ -106,7 +107,7 @@ a {
     50% { transform: scale(1.05); }
 }
 
-.header .subtitle {
+.header .sub {
     font-size: 1.2em;
     margin-bottom: 15px;
     opacity: 0.9;
@@ -878,7 +879,7 @@ img {
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .header .title {
-        font-size: clamp(1.8em, 6vw, 3em);
+        font-size: 2rem;
     } 
 
     .header .birthday-name {
