@@ -350,6 +350,20 @@ a {
 }
 
 /* contenitori interni */
+.gif-container {
+    display: flex;
+    justify-content: center; /* centra tutto */
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap; /* IMPORTANTISSIMO per mobile */
+}
+
+.gif-container img {
+    width: 300px;
+    height: 200px;
+    margin-bottom: 50px;
+}
+
 
 /* immagini responsive */
 .detail-card,
