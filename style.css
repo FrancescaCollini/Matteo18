@@ -99,7 +99,7 @@ a {
     margin: 0 auto;
     text-align: center;
     white-space: normal;
-    min-width: 0;
+    min-width: 0 ;
 }
 
 @keyframes pulse {
@@ -878,9 +878,9 @@ img {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .header .title {
+    /*.header .title {
         font-size: 2rem;
-    } 
+    } */
 
     .header .birthday-name {
         font-size: 3.5em;
@@ -944,9 +944,9 @@ img {
         padding: 25px 15px;
     }
 
-    .header .title {
+    /*.header .title {
         font-size: clamp(3.5em, 10vw, 6em);
-    }
+    }*/
 
     .header .birthday-name {
         font-size: 2em;
