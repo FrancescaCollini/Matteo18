@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button id="musicBtn" class="music-btn">🎵 Play Music</button>
+
+        <audio id="bgMusic" loop>
+            <source src="AlicesTheme.mp3" type="audio/mpeg">
+        </audio>
     <div class="container">
         <!-- Header -->
         <header class="header">
@@ -21,11 +26,7 @@
             <button class="nav-btn" onclick="switchTab(event, 'location')">☀️ Location</button>
             <button class="nav-btn" onclick="switchTab(event, 'conferma')">🐇 Join the party</button>
         </nav>
-        <button id="musicBtn" class="music-btn">🎵 Play Music</button>
-
-        <audio id="bgMusic" loop>
-            <source src="AlicesTheme.mp3" type="audio/mpeg">
-        </audio>
+        
         <!-- Tema Section -->
         <section id="tema" class="tab-content active">
             <div class="section-header">
