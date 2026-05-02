@@ -95,7 +95,7 @@ a {
         2px 2px 4px rgba(0,0,0,0.6);
     color: var(--dark-red);
     animation: pulse 2s infinite;
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto;
     text-align: center;
     white-space: normal;
