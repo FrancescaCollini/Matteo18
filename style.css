@@ -76,20 +76,15 @@ a {
 }
 
 .highlight-link {
-    color: #640F0F; /* bordeaux */
+    color: #1a0dab; /* bordeaux */
+    text-decoration: underline;
+}
+.highlight-link:visited {
+    color: #551a8b; /* viola dopo click */
+}
+
+.highlight-link:hover {
     text-decoration: none;
-
-    background: linear-gradient(
-        120deg,
-        rgba(245, 245, 220, 0.2) 0%,
-        rgba(245, 245, 220, 0.8) 50%,
-        rgba(245, 245, 220, 0.2) 100%
-    );
-
-    padding: 2px 6px;
-    border-radius: 4px;
-
-    transition: all 0.3s ease;
 }
 .header .title {
     font-size: clamp(2em, 3vw, 3.5em);

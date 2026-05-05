@@ -1,5 +1,5 @@
 // Codice di accesso
-const ACCESS_CODE = 'wonderland18';
+const ACCESS_CODE = 'Mett18';
 
 // Gestione dei tab
 function switchTab(event, tabName) {
