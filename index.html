@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<link rel="stylesheet" href="style.css?v=18">
 <link rel="icon" href="Stregatto.jpeg" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matteo 18 in Worderland</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=18">
+
 </head>
 <body>
     <button id="musicBtn" class="music-btn">🎵 Play Music</button>
@@ -62,7 +62,7 @@
                         <p class="hint">Eleganza e fantasia</p>
                         <p>Scegli il tuo personaggio e preparati ad essere un po' folle! 
                         </p>
-                        <img src = "dress2.jpg" style="display: block; margin:20px auto 0;">
+                        <img src = "dress2.jpg">
                       
                      </div>   
 
@@ -232,9 +232,9 @@
                 <h2> Conferma la tua presenza</h2>
             </div>
             <div class="decorative-cards">
-        <img src="ace.jpeg" alt="Carta Asso di cuori">
-        <img src="8.png" alt="Carta 8 di fiori">
-    </div>
+                <img src="ace.jpeg" alt="Carta Asso di cuori">
+                <img src="8.png" alt="Carta 8 di fiori">
+            </div>
             <div id="codeInput" class="code-section">
                 <p class="access-text">Inserisci il codice di accesso per confermare la tua presenza</p>
                 <div class="input-group">
@@ -307,13 +307,13 @@
     
 </div>
 <button type="submit" class="btn-submit">Invia risposta</button>
-
+</form>
 <!-- messaggio NO -->
 <div id="no-message" style="display:none;">
     <p>Grazie per averci fatto sapere 💌</p>
 </div>
                 
-                </form>
+                
 
                 <div class="confirmation-message hidden" id="confirmationMsg">
                     <p class="success-emoji">🎉</p>
@@ -353,37 +353,32 @@ emailjs.init("vYFUsyE6kts2xG13w");
 
 document.querySelector(".conferma-form").addEventListener("submit", function(e) {
     e.preventDefault();
-
     const attendance = document.querySelector('input[name="attendance"]:checked')?.value;
+
     let templateParams = {
-        name: "",
+        name: document.getElementById("name").value,
         attendance: attendance,
         guests: "",
         dietary: "",
         message: ""
     };
-    // Dati base (sempre presenti)
-    let templateParams = {
-        name: document.getElementById("name").value,
-        attendance: attendance
-    };
 
-    // Se partecipa → aggiungo altri dati
     if (attendance === "si") {
-        //templateParams.phone = document.getElementById("phone").value;
-        templateParams.guests = document.getElementById("guests").value;
-        templateParams.dietary = document.getElementById("dietary").value;
+        templateParams.guests = document.getElementById("guests")?.value || "";
+        templateParams.dietary = document.getElementById("dietary")?.value || "";
     }
 
-    // Se NON partecipa → puoi aggiungere un messaggio
     if (attendance === "no") {
         templateParams.message = "Non potrà partecipare all'evento";
     }
 
-    emailjs.send("service_uja2oag", "template_z7belnr",templateParams)
+    emailjs.send("service_uja2oag", "template_z7belnr", templateParams)
     .then(() => {
         alert("✨ Conferma inviata con successo!");
+
         document.querySelector(".conferma-form").reset();
+        document.getElementById("rsvp-form").style.display = "none";
+
         window.scrollTo({ top: 0, behavior: "smooth" });
     })
     .catch((error) => {

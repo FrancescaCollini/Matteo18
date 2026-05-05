@@ -73,7 +73,7 @@ musicBtn.addEventListener("click", () => {
 });
 
 // Gestione invio form
-form.addEventListener('submit', function(e) {
+/*form.addEventListener('submit', function(e) {
     e.preventDefault();
 
     const nome = document.getElementById('name').value;
@@ -105,7 +105,9 @@ form.addEventListener('submit', function(e) {
 
     // 🔥 RESET PRIMA DI NASCONDERE
     form.reset();
+    rsvpForm.style.display = "none";
 
+document.getElementById("guests").required = false;
     // reset eventuali radio
     document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
 
@@ -125,7 +127,6 @@ form.addEventListener('submit', function(e) {
             unlockConferma();
         }
     });
-});
 
 // Aggiungi animazione shake al CSS dinamicamente
 const style = document.createElement('style');
@@ -137,7 +138,7 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-
+*/
 // Funzione per ottenere il numero totale di conferme (utile per amministratore)
 function getConferme() {
     const conferme = JSON.parse(localStorage.getItem('confermeCompleanno')) || [];
@@ -185,7 +186,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let data = {
             name: document.getElementById("name").value,
-            attendance: attendance
+            attendance: attendance,
+            guests: "",
+            dietary: "",
+            comments: ""
             };
             if (attendance === "si") {
             data.guests = document.getElementById("guests").value;
