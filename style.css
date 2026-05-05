@@ -8,7 +8,7 @@
     --primary-red: #5A0F1A;
     --bordeaux: #7a0b1e;
     --dark-red: #4a0a12;
-    --light-red: #DC143C;
+    --light-red: #800020;
     --cream: #f5f5dc;
     --white: #5C0A0A;
     --shadow: 0 4px 6px rgba(139, 0, 0, 0.2);
@@ -35,7 +35,7 @@ body {
 }
 
 h1 {
-  color: var(--bordeaux); /* bordeaux */
+  color: var(--light-red); /* bordeaux */
   -webkit-text-stroke: 2px --cream; /* cream */
 }
 /* Header */
@@ -90,7 +90,7 @@ a {
     font-size: clamp(2em, 3vw, 3.5em);
     text-shadow: 1px 1px 2px rgba(0,0,0,0.8),
         2px 2px 4px rgba(0,0,0,0.6);
-    color: var(--dark-red);
+    color: var(--light-red);
     animation: pulse 2s infinite;
     max-width: 90%;
     margin: 0 auto;
@@ -345,7 +345,7 @@ a {
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
-    
+
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
