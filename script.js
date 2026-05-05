@@ -73,59 +73,52 @@ musicBtn.addEventListener("click", () => {
 });
 
 // Gestione invio form
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('.conferma-form');
-    
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Raccogli dati del form
-            const nome = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            //const phone = document.getElementById('phone').value;
-            const guests = document.getElementById('guests').value;
-            const dietary = document.getElementById('dietary').value;
-            const comments = document.getElementById('comments').value;
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-            // Validazione base
-            if (!nome || !email || !guests) {
-                alert('Per favore, compila tutti i campi obbligatori!');
-                return;
-            }
+    const nome = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const guests = document.getElementById('guests').value;
+    const dietary = document.getElementById('dietary').value;
+    const comments = document.getElementById('comments').value;
 
-            // Crea oggetto con i dati
-            const formData = {
-                nome: nome,
-                email: email,
-                //phone: phone,
-                numeroPersone: guests,
-                esigenzeDietetiche: dietary,
-                dataConferma: new Date().toLocaleString('it-IT')
-            };
-
-            // Salva in localStorage come backup
-            let conferme = JSON.parse(localStorage.getItem('confermeCompleanno')) || [];
-            conferme.push(formData);
-            localStorage.setItem('confermeCompleanno', JSON.stringify(conferme));
-
-            // Mostra messaggio di successo
-            form.style.display = 'none';
-            document.getElementById('confirmationMsg').classList.remove('hidden');
-
-            // Log per debug (in produzione, mandare al server)
-            console.log('Conferma ricevuta:', formData);
-            console.log('Totale conferme:', conferme.length);
-
-            // Reset form dopo 3 secondi
-            setTimeout(() => {
-                form.reset();
-                form.style.display = 'block';
-                document.getElementById('confirmationMsg').classList.add('hidden');
-            }, 5000);
-        });
+    if (!nome || !email || !guests) {
+        alert('Per favore, compila tutti i campi obbligatori!');
+        return;
     }
 
+    const formData = {
+        nome,
+        email,
+        numeroPersone: guests,
+        esigenzeDietetiche: dietary,
+        commenti: comments,
+        dataConferma: new Date().toLocaleString('it-IT')
+    };
+
+    // 🔥 SALVATAGGIO
+    let conferme = JSON.parse(localStorage.getItem('confermeCompleanno')) || [];
+    conferme.push(formData);
+    localStorage.setItem('confermeCompleanno', JSON.stringify(conferme));
+
+    console.log('Conferma ricevuta:', formData);
+
+    // 🔥 RESET PRIMA DI NASCONDERE
+    form.reset();
+
+    // reset eventuali radio
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+
+    // UI feedback
+    form.style.display = 'none';
+    document.getElementById('confirmationMsg').classList.remove('hidden');
+
+    // 🔄 ripristino dopo 5 sec
+    setTimeout(() => {
+        form.style.display = 'block';
+        document.getElementById('confirmationMsg').classList.add('hidden');
+    }, 5000);
+});
     // Permetti invio con Invio quando il focus è sull'input del codice
     document.getElementById('accessCode').addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {

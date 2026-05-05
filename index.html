@@ -355,7 +355,13 @@ document.querySelector(".conferma-form").addEventListener("submit", function(e) 
     e.preventDefault();
 
     const attendance = document.querySelector('input[name="attendance"]:checked')?.value;
-
+    let templateParams = {
+        name: "",
+        attendance: attendance,
+        guests: "",
+        dietary: "",
+        message: ""
+    };
     // Dati base (sempre presenti)
     let templateParams = {
         name: document.getElementById("name").value,
@@ -364,7 +370,7 @@ document.querySelector(".conferma-form").addEventListener("submit", function(e) 
 
     // Se partecipa → aggiungo altri dati
     if (attendance === "si") {
-        templateParams.phone = document.getElementById("phone").value;
+        //templateParams.phone = document.getElementById("phone").value;
         templateParams.guests = document.getElementById("guests").value;
         templateParams.dietary = document.getElementById("dietary").value;
     }
@@ -377,6 +383,8 @@ document.querySelector(".conferma-form").addEventListener("submit", function(e) 
     emailjs.send("service_uja2oag", "template_z7belnr",templateParams)
     .then(() => {
         alert("✨ Conferma inviata con successo!");
+        document.querySelector(".conferma-form").reset();
+        window.scrollTo({ top: 0, behavior: "smooth" });
     })
     .catch((error) => {
         console.log(error);
